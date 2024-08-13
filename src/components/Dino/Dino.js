@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Dino.css";
 
-export const Dino = ()=>{
+export const Dino = () => {
   const dinoRef = useRef();
   const cactusRef = useRef();
   const [score, setScore] = useState(0);
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
   const jump = () => {
     if (!!dinoRef.current && dinoRef.current.classList != "jump") {
@@ -15,7 +16,24 @@ export const Dino = ()=>{
     }
   };
 
+  // Start game on any key press
   useEffect(() => {
+    const handleKeyPress = () => {
+      if (!isGameStarted) {
+        setIsGameStarted(true);
+      } else {
+        jump();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    return () => document.removeEventListener("keydown", handleKeyPress);
+  }, [isGameStarted]);
+
+  // Collision detection and game loop
+  useEffect(() => {
+    if (!isGameStarted) return; // Skip game loop if not started
+
     const isAlive = setInterval(function () {
       // get current dino Y position
       const dinoTop = parseInt(
@@ -32,24 +50,26 @@ export const Dino = ()=>{
         // collision
         alert("Game Over! Your Score : " + score);
         setScore(0);
+        setIsGameStarted(false); // Reset game start
       } else {
-        setScore(score + 1);
+        setScore((prevScore) => prevScore + 1);
       }
     }, 10);
 
     return () => clearInterval(isAlive);
-  });
-
-  useEffect(() => {
-    document.addEventListener("keydown", jump);
-    return () => document.removeEventListener("keydown", jump);
-  }, []);
+  }, [isGameStarted, score]);
 
   return (
     <div className="game">
-      Score : {score}
-      <div id="dino" ref={dinoRef}></div>
-      <div id="cactus" ref={cactusRef}></div>
+      {isGameStarted ? (
+        <>
+          Score : {score}
+          <div id="dino" ref={dinoRef}></div>
+          <div id="cactus" ref={cactusRef}></div>
+        </>
+      ) : (
+        <h2>Press any key to start the game</h2>
+      )}
     </div>
   );
 };
