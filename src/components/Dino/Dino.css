@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .game {
   width: 600px;
   height: 225px;
   border: 1px solid black;
   margin: auto;
+  cursor: none; /* Hides the cursor */
+}
+
+.font_style {
+  font-family: 'Press Start 2P', cursive;
 }
 
 #dino {
