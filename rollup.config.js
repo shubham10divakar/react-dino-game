@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import url from '@rollup/plugin-url';
 
 export default [
   {
@@ -19,6 +20,10 @@ export default [
       }
     ],
     plugins: [
+      url({
+        include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'], // Include GIFs
+        limit: 0, // Set the limit to avoid inlining the files
+      }),
       postcss({
         plugins: [],
         minimize: true,
