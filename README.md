@@ -3,7 +3,7 @@
 
 A fun and interactive Dinosaur game built using React. This library allows you to easily embed the classic "Dino" game, inspired by the offline Chrome dinosaur game, into your React applications. The game features a simple design, jump mechanics, score tracking, and basic collision detection.
 
-![](/image/dino-game.mp4)
+![](/image/dino-game.gif)
 
 ## Play this game live at:
 https://shubham10divakar.github.io/showcasehub/
