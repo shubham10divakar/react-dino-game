@@ -21,7 +21,7 @@ export default [
     ],
     plugins: [
       url({
-        include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'], // Include GIFs
+        include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif', 'src/components/Dino/img/*.png'], // Include GIFs
         limit: 0, // Set the limit to avoid inlining the files
       }),
       postcss({

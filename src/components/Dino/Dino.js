@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Dino.css";
 import { Cloud } from "./Cloud";
+import dinoImage from '../../assets/trex.png'
+import cactusImage from '../../assets/cactus.png'
 
 export const Dino = () => { 
   const dinoRef = useRef();
@@ -9,6 +11,26 @@ export const Dino = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+
+  const dinoStyles = {
+    width: '50px',
+    height: '50px',
+    backgroundImage: `url(${dinoImage})`,
+    backgroundSize: '50px 50px',
+    position: 'relative',
+    top: '150px',
+  };
+
+  const cactusStyles = {
+    width: '20px',
+    height: '40px',
+    position: 'relative',
+    top: '110px',
+    left: '580px',
+    backgroundImage: `url(${cactusImage})`, // Use the imported image
+    backgroundSize: '20px 40px',
+    animation: 'block 1s infinite linear',
+  };
 
   //managing jump activity upon key press
   const jump = () => {
@@ -71,8 +93,8 @@ export const Dino = () => {
       {isGameStarted ? (
         <>
           Score: {score}
-          <div id="dino" ref={dinoRef}></div>
-          <div id="cactus" ref={cactusRef}></div>
+          <div style={dinoStyles} ref={dinoRef}></div>
+          <div style={cactusStyles} ref={cactusRef}></div>
           {/* <Cloud gameWidth={600} gameHeight={225}/> */}
         </>
       ) : isGameOver ? (
