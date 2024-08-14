@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Dino.css";
+import { Cloud } from "./Cloud";
 
 export const Dino = () => { 
   const dinoRef = useRef();
@@ -72,6 +73,7 @@ export const Dino = () => {
           Score: {score}
           <div id="dino" ref={dinoRef}></div>
           <div id="cactus" ref={cactusRef}></div>
+          {/* <Cloud gameWidth={600} gameHeight={225}/> */}
         </>
       ) : isGameOver ? (
         <div>
