@@ -36,13 +36,13 @@ jsx
 ```
 // App.js
 import React from 'react';
-import { DinoGame } from 'react-dino-game';
+import { Dino } from 'react-dino-game';
 
 function App() {
   return (
     <div>
       <h1>My Dino Game</h1>
-      <DinoGame />
+      <Dino />
     </div>
   );
 }
