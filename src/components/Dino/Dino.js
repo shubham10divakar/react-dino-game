@@ -37,7 +37,10 @@ export const Dino = () => {
     if (!!dinoRef.current && dinoRef.current.classList != "jump") {
       dinoRef.current.classList.add("jump");
       setTimeout(function () {
-        dinoRef.current.classList.remove("jump");
+        console.log(dinoRef)
+        if(dinoRef.current){
+          dinoRef.current.classList.remove("jump");
+        }
       }, 300);
       //300 indicates 300 millisecond for which dinosaur will be in air
     }
