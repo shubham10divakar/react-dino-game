@@ -3,6 +3,10 @@ import "./Dino.css";
 import { Cloud } from "./Cloud";
 import dinoImage from '../../assets/trex.png'
 import cactusImage from '../../assets/cactus.png'
+import sunGif from '../../assets/sun.gif';      // Sun GIF
+import cloudGif from '../../assets/clouds.gif';
+import birdGif from '../../assets/birds.gif';
+
 
 export const Dino = () => { 
   const dinoRef = useRef();
@@ -32,6 +36,41 @@ export const Dino = () => {
     backgroundImage: `url(${cactusImage})`, // Use the imported image
     backgroundSize: '20px 40px',
     animation: `block ${cactusSpeed}s infinite linear`, // Dynamic speed based on cactusSpeed state
+  };
+
+  const sunStyles = {
+    width: '80px',
+    height: '80px',
+    backgroundImage: `url(${sunGif})`,  // Sun GIF being used here
+    backgroundSize: 'cover',
+    position: 'absolute',
+    top: '20px',
+    left: '80%', // Position to the right side
+    zIndex: '-1', // Make sure it's behind game elements
+  };
+
+  const cloudStyles1 = {
+    width: '120px',
+    height: '100px',
+    backgroundImage: `url(${cloudGif})`,
+    backgroundSize: 'cover',
+    position: 'absolute',
+    top: '50px',
+    left: '10%',
+    zIndex: '-1',
+    //animation: 'moveClouds 10s linear infinite',
+  };
+
+  const birdstyles = {
+    width: '80px',
+    height: '40px',
+    backgroundImage: `url(${birdGif})`,
+    backgroundSize: 'cover',
+    position: 'absolute',
+    top: '20px',
+    left: '40%',
+    zIndex: '-1',
+    //animation: `block 2s infinite linear`,
   };
 
   //managing jump activity upon key press
@@ -103,9 +142,13 @@ export const Dino = () => {
 
   return (
     <div className="game">
+
       {isGameStarted ? (
         <>
           Score: {score}
+          <div style={sunStyles}></div>
+          {/* <div style={cloudStyles1}></div> */}
+          <div style={birdstyles}></div>
           <div style={dinoStyles} ref={dinoRef}></div>
           <div style={cactusStyles} ref={cactusRef}></div>
           {/* <Cloud gameWidth={600} gameHeight={225}/> */}

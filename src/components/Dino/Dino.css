@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .game {
+  position: relative; /* Establishes a new positioning context */
   width: 600px;
   height: 225px;
   border: 1px solid black;
