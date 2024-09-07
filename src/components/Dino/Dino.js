@@ -11,6 +11,8 @@ export const Dino = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+  const [cactusSpeed, setCactusSpeed] = useState(1); // Initial speed (1 second per block loop)
+
 
   const dinoStyles = {
     width: '50px',
@@ -29,7 +31,7 @@ export const Dino = () => {
     left: '580px',
     backgroundImage: `url(${cactusImage})`, // Use the imported image
     backgroundSize: '20px 40px',
-    animation: 'block 1s infinite linear',
+    animation: `block ${cactusSpeed}s infinite linear`, // Dynamic speed based on cactusSpeed state
   };
 
   //managing jump activity upon key press
@@ -90,6 +92,14 @@ export const Dino = () => {
 
     return () => clearInterval(isAlive);
   }, [isGameStarted, score]);
+
+  // Increase cactus speed as the score increases
+  useEffect(() => {
+    if (isGameStarted) {
+      const newSpeed = 1 - Math.min(0.8, score / 10000); // Cactus speed decreases from 1s to 0.2s based on score
+      setCactusSpeed(newSpeed);
+    }
+  }, [score, isGameStarted]);
 
   return (
     <div className="game">
