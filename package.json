@@ -1,6 +1,6 @@
 {
   "name": "react-dino-game",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "React Dino Game is a React component library for using famous dinosaur game in web applications.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
