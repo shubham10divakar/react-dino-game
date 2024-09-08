@@ -11,6 +11,11 @@ https://shubham10divakar.github.io/showcasehub/
 ## NPM 
 NPM Link - https://www.npmjs.com/package/react-dino-game?activeTab=readme
 
+## Latest Features added in ver 1.0.11
+1. Difficulty increases with time
+2. Added few background elements -sun, birds
+3. More exciting features upcomming
+
 ## Features
 1. Jump Mechanics: The player controls the dinosaur by jumping over obstacles using the spacebar.
 2. Score Tracking: The game tracks the player's score as they avoid obstacles.
