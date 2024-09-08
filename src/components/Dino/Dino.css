@@ -22,6 +22,30 @@
   top: 150px;
 }
 
+#sun {
+  width: 80px;
+  height: 80px;
+  background-image: url(img/sun.gif); /* Replace with correct path */
+  background-size: cover;
+  position: absolute;
+  top: 20px;
+  left: 80%; /* Positioned towards the right */
+  z-index: -1; /* Behind game elements */
+}
+
+#bird {
+  width: 80px;
+  height: 40px;
+  background-image: url(img/bird.gif); /* Replace with correct path */
+  background-size: cover;
+  position: absolute;
+  top: 20px;
+  left: 40%; /* Positioned towards the center-right */
+  z-index: -1; /* Behind game elements */
+  animation: fly 2s infinite linear; /* Uncomment to enable bird animation */
+}
+
+
 .jump {
   animation: jump 0.3s linear;
 }
